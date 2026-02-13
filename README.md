@@ -1,6 +1,6 @@
-# PrintGuard
+﻿# Print Guard
 
-PrintGuard is an offline Windows 10/11 print firewall app.
+Print Guard is an offline Windows 10/11 print firewall app.
 It runs in the tray, blocks new print jobs immediately, asks for password, and only then releases the job.
 
 ## Tech Stack
@@ -49,7 +49,7 @@ When protection is enabled:
 
 1. WMI subscribes to `__InstanceCreationEvent` for `Win32_PrintJob`.
 2. Polling watcher runs as fallback (`PollingIntervalMs`).
-3. For each new job on protected printers, PrintGuard pauses the job.
+3. For each new job on protected printers, Print Guard pauses the job.
 4. Password prompt opens (topmost) with printer/document details.
 5. Correct password:
    - resume just that job, or
@@ -105,8 +105,10 @@ dotnet test tests/PrintGuard.Tests/PrintGuard.Tests.csproj
 
 ## Privacy
 
-PrintGuard has no hidden behavior:
+Print Guard has no hidden behavior:
 
 - no keylogging
 - no document exfiltration
 - no remote calls
+
+
