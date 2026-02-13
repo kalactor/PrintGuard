@@ -1,0 +1,95 @@
+<Window
+    x:Class="PrintGuardWinUI.Windows.SettingsWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:viewModels="using:PrintGuardWinUI.ViewModels"
+    Title="PrintGuard Settings">
+    <Border Padding="14">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <ScrollViewer Grid.Row="0">
+                <StackPanel>
+                    <CheckBox x:Name="ProtectionEnabledCheckBox" Content="Enable print protection" Margin="0,0,0,8" />
+                    <CheckBox x:Name="ProtectAllPrintersCheckBox"
+                              Content="Protect all printers"
+                              Margin="0,0,0,10"
+                              Checked="ProtectAllPrintersCheckBox_Checked"
+                              Unchecked="ProtectAllPrintersCheckBox_Checked" />
+
+                    <Border Padding="10" BorderThickness="1" BorderBrush="LightGray" CornerRadius="6" Margin="0,0,0,10">
+                        <StackPanel>
+                            <TextBlock Text="Protected printers" FontWeight="SemiBold" Margin="0,0,0,6" />
+                            <ListView x:Name="PrintersListView" Height="150" SelectionMode="None">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate x:DataType="viewModels:PrinterSelectionItemViewModel">
+                                        <CheckBox Content="{x:Bind Name}" IsChecked="{x:Bind IsSelected, Mode=TwoWay}" />
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackPanel>
+                    </Border>
+
+                    <Border Padding="10" BorderThickness="1" BorderBrush="LightGray" CornerRadius="6" Margin="0,0,0,10">
+                        <StackPanel>
+                            <TextBlock Text="Security" FontWeight="SemiBold" Margin="0,0,0,8" />
+                            <TextBlock Text="Max password failures before lockout" />
+                            <TextBox x:Name="MaxFailedAttemptsBox" Margin="0,0,0,8" />
+                            <TextBlock Text="Lockout duration (seconds)" />
+                            <TextBox x:Name="LockoutSecondsBox" Margin="0,0,0,8" />
+                            <CheckBox x:Name="CancelAfterFailedCheckBox"
+                                      Content="Cancel job after repeated wrong passwords"
+                                      Margin="0,0,0,8" />
+                            <TextBlock Text="Failed attempts before cancel" />
+                            <TextBox x:Name="CancelFailedThresholdBox" />
+                        </StackPanel>
+                    </Border>
+
+                    <Border Padding="10" BorderThickness="1" BorderBrush="LightGray" CornerRadius="6" Margin="0,0,0,10">
+                        <StackPanel>
+                            <TextBlock Text="Job Handling" FontWeight="SemiBold" Margin="0,0,0,8" />
+                            <TextBlock Text="Polling interval (ms, 500-1000 recommended)" />
+                            <TextBox x:Name="PollingIntervalBox" Margin="0,0,0,8" />
+                            <TextBlock Text="Prompt quick unlock minutes" />
+                            <TextBox x:Name="PromptUnlockMinutesBox" Margin="0,0,0,8" />
+                            <CheckBox x:Name="FallbackCancelCheckBox"
+                                      Content="Fallback to cancel when pause fails"
+                                      Margin="0,0,0,8" />
+                            <CheckBox x:Name="ReassertPausedCheckBox"
+                                      Content="Reassert paused jobs on startup"
+                                      Margin="0,0,0,8" />
+                            <CheckBox x:Name="AutoCancelPausedCheckBox"
+                                      Content="Auto-cancel paused jobs"
+                                      Margin="0,0,0,8" />
+                            <TextBlock Text="Auto-cancel after minutes" />
+                            <TextBox x:Name="AutoCancelMinutesBox" />
+                        </StackPanel>
+                    </Border>
+
+                    <Border Padding="10" BorderThickness="1" BorderBrush="LightGray" CornerRadius="6">
+                        <StackPanel>
+                            <TextBlock Text="General" FontWeight="SemiBold" Margin="0,0,0,8" />
+                            <CheckBox x:Name="EnableStartupCheckBox"
+                                      Content="Run at Windows startup"
+                                      Margin="0,0,0,8" />
+                            <CheckBox x:Name="EnableNotificationsCheckBox" Content="Enable notifications" />
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </ScrollViewer>
+
+            <Grid Grid.Row="1" ColumnSpacing="8" Margin="0,10,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1" Content="Cancel" Click="CancelButton_Click" />
+                <Button Grid.Column="2" Content="Save" Click="SaveButton_Click" />
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

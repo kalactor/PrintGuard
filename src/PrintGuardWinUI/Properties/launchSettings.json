@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "PrintGuardWinUI (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "PrintGuardWinUI (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

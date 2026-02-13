@@ -1,0 +1,43 @@
+# Build outputs
+[Bb]in/
+[Oo]bj/
+out/
+publish/
+
+# Visual Studio / VS Code / Rider
+.vs/
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.rsuser
+
+# Test and coverage artifacts
+TestResults/
+*.coverage
+*.coveragexml
+*.trx
+coverage/
+
+# Logs and diagnostics
+*.log
+build_diag.log
+
+# NuGet / package cache files
+*.nupkg
+*.snupkg
+packages/
+
+# OS / editor noise
+Thumbs.db
+Desktop.ini
+*.tmp
+*.swp
+*.bak
+
+# Local temp/probe folders used during development
+.tmpbuild/
+.tmp_winui_probe/
+
