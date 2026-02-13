@@ -1,5 +1,7 @@
 ﻿# Print Guard
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 Print Guard is an offline Windows 10/11 print firewall app.
 It runs in the tray, blocks new print jobs immediately, asks for password, and only then releases the job.
 
@@ -110,5 +112,16 @@ Print Guard has no hidden behavior:
 - no keylogging
 - no document exfiltration
 - no remote calls
+
+
+
+## Credits
+
+- Created by Amit Kumar
+- Website: https://amityadav.in
+
+## License
+
+This project is open source under the MIT License. See LICENSE for details.
 
 
